@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  div.normal.block#projects
+    div.project
+      a.portForward(href = "/revolt" newPort = "8081")
+        img.project(src="static/images/revolt.png" alt="Revolt")
+      p Revolt is bringing Mexican fashion to Paris
+    div.project
+      a(href = "https://www.facebook.com/dylanturney")
+        img.project(src="static/images/dylan.jpg" alt="Dylan")
+      p We are all very concerned about Dylan
+    
+  script(src="static/javascripts/projects.js")
+      
