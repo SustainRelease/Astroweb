@@ -3,13 +3,13 @@ extends layout
 block content
   div.normal.block#projects
     div.project
-      a.portForward(href = "/revolt" newPort = "8081")
+      a.portForward(href = "/revolt" newPort = ports.Revolt)
         img.project(src="static/images/revolt.png" alt="Revolt")
-      p Revolt is bringing Mexican fashion to Paris
+      p Revolt is a new company working with Mexican designers to bring ethically-made clothing to France.
     div.project
       a(href = "https://www.facebook.com/dylanturney")
         img.project(src="static/images/dylan.jpg" alt="Dylan")
-      p We are all very concerned about Dylan
+      p We are all very concerned about Dylan.
     
   script(src="static/javascripts/projects.js")
       

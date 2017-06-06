@@ -1,18 +1,8 @@
-const setDivHeight = function () {
-  $("div.project").each(function() {
-    $(this).height($("img",this).height());
-  });
-}
-
-$( document ).ready(() => {
+$(window).load(function () {
   //Setting up links to change to new port
+  console.log("pageLoaded");
+  let protoHost = window.location.protocol + '//' + window.location.hostname + ':';
   $("a.portForward").each(function() {
-    $(this).attr("href", window.location.protocol + '//' + window.location.hostname + ':' + $(this).attr("newPort") + $(this).attr("href"));
+    $(this).attr("href",protoHost + $(this).attr("newPort") + $(this).attr("href"));
   });
-  setDivHeight();
-})
-
-$(window).resize(function () {
-  console.log("Resize");
-  setDivHeight();
 });

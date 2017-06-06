@@ -1,4 +1,4 @@
-module.exports = function (port, subRoute) {
+module.exports = function () {
 
   var express = require('express');
   var path = require('path');
@@ -8,6 +8,8 @@ module.exports = function (port, subRoute) {
   var bodyParser = require('body-parser');
 
   var main = require('./routes/main');
+  var sites = require('../bin/siteManager.json');
+  port = sites.Astroweb.port;
 
   var app = express();
 
@@ -24,7 +26,7 @@ module.exports = function (port, subRoute) {
 
   app.use('/static', express.static(__dirname + '/public'));
 
-  app.use('/', main(subRoute));
+  app.use('/', main(sites));
 
   // catch 404 and forward to error handler
   app.use(function(req, res, next) {
@@ -46,7 +48,7 @@ module.exports = function (port, subRoute) {
 
   app.set('port', port);
 
-  console.log("Serving page at :" + port + subRoute);
+  console.log("Serving page at :" + port);
 
   return app;
 }
