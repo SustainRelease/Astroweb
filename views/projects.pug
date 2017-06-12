@@ -1,7 +1,21 @@
-extends layout
+extends layoutExt
 
 block content
+  if isLoggedIn
+    div.normal.block#projects
+      if nProjects == 0
+        h2 Your Projects
+        p You don't have any projects to see here
+      else
+        if nProjects == 1
+          h2 Your Project
+        else 
+          h2 Your Projects
   div.normal.block#projects
+    if isLoggedIn
+      h2 Public Projects
+    else
+      h2 Projects
     div.project
       a(href = "/revolt")
         img.project(src="static/images/revolt.png" alt="Revolt")
@@ -11,5 +25,3 @@ block content
         img.project(src="static/images/dylan.jpg" alt="Dylan")
       p We are all very concerned about Dylan.
     
-  script(src="static/javascripts/projects.js")
-      

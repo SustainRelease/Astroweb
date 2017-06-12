@@ -1,31 +1,25 @@
-module.exports = function (sites) {
+module.exports = function (subRoute) {  //subRoute should be empty
   var express = require('express');
   var router = express.Router();
-
-  // Preparing objects to pass to renderer
-  subRoute = sites.Astroweb.subRoute;  //Should be empty
-  var ports = {};
-  for (let key in sites) {
-    ports[key] = sites[key].port;
-  }
-  console.log("Ports:");
-  console.log(ports);
+  var getUserInfo = require('../middleware/middle.js').getUserInfo;
 
   // ROUTES
+  //Main page
   router.get(subRoute + '/', function(req, res, next) {
     res.render('index', {subR: subRoute});
   });
 
-  /* GET about page. */
+  //About
   router.get(subRoute + '/about', function(req, res, next) {
     res.render('about', {subR: subRoute});
   });
 
-  /* GET projects page. */
-  router.get(subRoute + '/projects', function(req, res, next) {
-    res.render('projects', {subR: subRoute, "ports": ports});
+  //Projects
+  router.get(subRoute + '/projects', getUserInfo, function(req, res, next) {
+    res.render('projects', {subR: subRoute});
   });
 
+  //Contact
   router.get(subRoute + '/contact', function(req, res, next) {
     res.render('contact', {subR: subRoute});
   });

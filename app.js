@@ -6,12 +6,38 @@ module.exports = function () {
   var logger = require('morgan');
   var cookieParser = require('cookie-parser');
   var bodyParser = require('body-parser');
-
+  var mongoose = require('mongoose');
+  var session = require('express-session');
+  var MongoStore = require('connect-mongo')(session);
   var main = require('./routes/main');
+  var authenticate = require('./routes/authenticate');
   var sites = require('../bin/siteManager.json');
   port = sites.Astroweb.port;
+  subRoute = sites.Astroweb.subRoute;
 
   var app = express();
+
+  // mongodb connection
+  mongoose.connect("mongodb://localhost:27017/astroweb");
+  var db = mongoose.connection;
+  // mongo error
+  db.on('error', console.error.bind(console, 'connection error:'));
+
+  // use sessions for tracking logins
+  app.use(session({
+    secret: 'pitaya',
+    resave: true,
+    saveUninitialized: false,
+    store: new MongoStore({
+      mongooseConnection: db
+    })
+  }));
+
+  // make user ID available in templates
+  app.use(function (req, res, next) {
+    res.locals.currentUser = req.session.userId;
+    next();
+  });
 
   // view engine setup
   app.set('views', path.join(__dirname, 'views'));
@@ -26,9 +52,9 @@ module.exports = function () {
 
   app.use('/static', express.static(__dirname + '/public'));
 
-  app.use('/', main(sites));
+  app.use('/', main(subRoute));
+  app.use('/', authenticate());
 
-  // catch 404 and forward to error handler
   app.use(function(req, res, next) {
     var err = new Error('Not Found');
     err.status = 404;
@@ -37,14 +63,13 @@ module.exports = function () {
 
   // error handler
   app.use(function(err, req, res, next) {
-    // set locals, only providing error in development
-    res.locals.message = err.message;
-    res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-    // render the error page
     res.status(err.status || 500);
-    res.render('error');
+    res.render('error', {
+      message: err.message,
+      error: {}
+    });
   });
+
 
   app.set('port', port);
 

@@ -1,0 +1,13 @@
+nav
+	div.normal.flex-container.partial.top
+		div.link
+			a(href='/about') About
+		div.link
+			a(href='/projects') Projects
+		div.link
+			a(href='/contact') Contact
+	div.normal.partial.link.bot
+		if !currentUser
+			a(href = "/login") Login to see your projects
+		if currentUser
+			p hello Robbie

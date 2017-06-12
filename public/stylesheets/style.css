@@ -1,7 +1,8 @@
 body {
-  padding: 50px;
+  padding: 2px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-image: url("/static/images/space.png");
+  /* background-image: url("/static/images/space.png"); */
+  background-color: black;
   background-position: center;
   background-size: cover;
   text-align: center;
@@ -16,20 +17,12 @@ img#profile {
 
 div.normal {  /* Visible width = 500 + 2(2+1) = 506 */
   max-width: 500px;
-  padding: 2px;
+  padding: 0px;
   margin: 10px auto;
-  background-color: #8A8EBF;
+  background-color: hsl(236, 28%, 70%);
   border: 1px solid black;
   border-radius: 20px;
   color: #070007;
-}
-
-div.flex-container {
-  display: -webkit-flex;
-  display: flex;
-  -webkit-justify-content: center;
-  justify-content: center;
-  flex-wrap: nowrap;
 }
 
 div.normal.block {   /* Visible width = 460 + 2(22+1) = 506 */
@@ -39,23 +32,15 @@ div.normal.block {   /* Visible width = 460 + 2(22+1) = 506 */
   height: 100%;
 }
 
-div.navlink {
-  height: 30px;
-  line-height: 30px;
-  border-collapse: collapse;
-  padding: auto;
-  margin: 0;
-  flex: 1;
-}
-
-div.navlink:nth-child(2) {
-  border-left: 1px solid #BEC0DC;
-  border-right: 1px solid #BEC0DC;
-}
-
 h1 {
   font-size: 1.5em;
   margin: 0px;
+}
+
+h2 {
+  text-align: center;
+  font-size: 1.2em;
+  margin: 0 auto 20px;
 }
 
 P:first-child {
@@ -71,10 +56,75 @@ a {
   text-decoration: none;
 }
 
+/********************************
+            NAV
+********************************/
+
+div.partial {
+  margin: 0px auto;
+  border: 1px solid black;
+  border-radius: 0px;
+  height: 30px;
+  line-height: 30px;
+}
+
+div.flex-container {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  padding: 2px inherit;
+}
+
+div.top {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-style: none;
+}
+
+div.link a {
+  padding: 5px;
+  border-radius: 5px;
+}
+
+div.top .link {
+  height: 30px;
+  line-height: 30px;
+  background: none;
+  padding: 0;
+  margin: 0;
+  flex: 1;
+}
+
+div.partial.top .link {
+  border-bottom: 1px solid hsl(236, 28%, 80%);
+}
+
+div.top .link a:hover {
+  background-color: hsl(236, 28%, 75%);
+}
+
+div.top .link:nth-child(2) {
+  border-left: 1px solid hsl(236, 28%, 80%);
+  border-right: 1px solid hsl(236, 28%, 80%);
+}
+
+div.bot.link {
+  background-color: hsl(236, 28%, 60%);
+  border-top-style: none;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+div.bot.link a:hover {
+  background-color: hsl(236, 28%, 65%);
+}
+
+
 /****************************
         PROJECTS
 *****************************/
-
 div.project {
   margin-bottom: 22px;
   display: inline-block;
@@ -104,6 +154,41 @@ div.project p {
   margin: 0 0 0 2.5%;
   width: 55%;
 }
+
+/****************************
+          LOGIN
+*****************************/
+  #login {
+    text-align: center;
+  }
+  form {
+    max-width: 300px;
+    margin: auto;
+    padding: 0 5%;
+  }
+  div.form-group {
+    height: 20px;
+    margin: 0 0 5px 0;
+    text-align: left;
+  }
+  label {
+    height: 20px;
+    line-height: 20px;
+    width: 20%;
+  }
+  input {
+    height: 16px;
+    padding: 1px;
+    margin: 1px 0;
+    width: 50%;
+    float: right;
+  }
+  input.err {
+    border: 1px solid red;
+  }
+
+
+
 
 /****************************
           ERROR

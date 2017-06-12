@@ -1,0 +1,24 @@
+extends layoutExt
+
+block content
+  div.normal.block#login
+    h2 Login
+    form(method='POST' action='/login')
+      div.form-group
+        label(for='email') Email
+        if logIssue && (logIssue == "fieldsEmpty")
+          input.err(type='text' id='email' placeholder='email' name='email')
+        else
+          input(type='text' id='email' placeholder='email' name='email')
+      div.form-group
+        label(for='password') Password
+        if logIssue && (logIssue == "fieldsEmpty")
+          input.err(type='password' id='password' placeholder='password' name='password')
+        else
+          input(type='password' id='password' placeholder='password' name='password')
+      if logIssue
+        if logIssue == "fieldsEmpty"
+          p.err You must enter both an email and a password
+        else if logIssue == "passFail"
+          p.err Invalid credentials
+      button.btn.btn-primary(type='submit') Submit
