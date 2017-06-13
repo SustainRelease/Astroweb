@@ -5,12 +5,12 @@ module.exports = function () {
 
   // ROUTES
   //Main page
-  router.get('/', function(req, res, next) {
+  router.get('/', mid.getUser, function(req, res, next) {
     res.render('index');
   });
 
   //About
-  router.get('/about', function(req, res, next) {
+  router.get('/about', mid.getUser, function(req, res, next) {
     res.render('about');
   });
 
@@ -20,7 +20,7 @@ module.exports = function () {
   });
 
   //Contact
-  router.get('/contact', function(req, res, next) {
+  router.get('/contact', mid.getUser, function(req, res, next) {
     res.render('contact');
   });
 
