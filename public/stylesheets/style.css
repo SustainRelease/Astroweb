@@ -1,12 +1,11 @@
 body {
   padding: 2px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  /* background-image: url("/static/images/space.png"); */
+  font: 12px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: black;
   background-position: center;
   background-size: cover;
   text-align: center;
-  font-size: 100%;
+  font-size: 90%;
 }
 
 img#profile {
@@ -21,14 +20,14 @@ div.normal {  /* Visible width = 500 + 2(2+1) = 506 */
   margin: 10px auto;
   background-color: hsl(236, 28%, 70%);
   border: 1px solid black;
-  border-radius: 20px;
+  border-radius: 10px;
   color: #070007;
 }
 
 div.normal.block {   /* Visible width = 460 + 2(22+1) = 506 */
   max-width: 460px;
   padding: 22px;
-  text-align: justify;
+  text-align: left;
   height: 100%;
 }
 
@@ -70,7 +69,6 @@ a {
 div.partial {
   margin: 0px auto;
   border: 1px solid black;
-  border-radius: 0px;
   height: 30px;
   line-height: 30px;
 }
@@ -84,21 +82,16 @@ div.flex-container {
   padding: 2px inherit;
 }
 
-div.top {
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
+div.top.partial {
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
   border-bottom-style: none;
   height: 31px;
 }
 
-div.link a {
-  height: 20px;
-  padding: 2px;
-  margin: auto 0;
-  border-radius: 5px;
-}
-
 div.top .link {
+  border-left: 1px solid hsl(236, 28%, 80%);
+  border-right: 1px solid hsl(236, 28%, 80%);
   height: 30px;
   line-height: 30px;
   background: none;
@@ -111,40 +104,30 @@ div.partial.top .link {
   border-bottom: 1px solid hsl(236, 28%, 80%);
 }
 
+div.link a {
+  height: 20px;
+  padding: 2px;
+  margin: auto 0;
+  border-radius: 5px;
+}
+
 div.top .link a:hover {
   background-color: hsl(236, 28%, 75%);
 }
 
-div.top .link:nth-child(2) {
-  border-left: 1px solid hsl(236, 28%, 80%);
-  border-right: 1px solid hsl(236, 28%, 80%);
+div.top .link:first-child {
+  border-left-style: none;
+}
+
+div.top .link:last-child {
+  border-right-style: none;
 }
 
 div.bot {
-  display: inline-block;
-  padding: 0 20px;
-  max-width: 460px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
   background-color: hsl(236, 28%, 60%);
   border-top-style: none;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
-}
-
-div.bot .link {
-  display: inline;
-  margin: auto 5px;
-}
-div.bot p {
-  display: inline;
-}
-
-div.bot a {
-  background-color: hsl(236, 28%, 40%);
-  border: 1px solid black;
-}
-
-div.bot a:hover {
-  background-color: hsl(236, 28%, 65%);
 }
 
 a#login {
@@ -185,16 +168,15 @@ div.project img.project {
 }
 
 div.project a {
-  float: left;
+  float: right;
   display: inline;
   width: 40%;
   margin: 0 2.5% 0 0;
 }
 
 div.project p {
-  float: right;
   margin: 0 0 0 2.5%;
-  width: 55%;
+  width: 100%;
 }
 
 /****************************
@@ -224,6 +206,9 @@ div.project p {
     margin: 1px 0;
     width: 50%;
     float: right;
+  }
+  form button {
+    margin: 10px auto 0px;
   }
   input.err {
     border: 1px solid red;

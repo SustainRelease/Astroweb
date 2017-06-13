@@ -1,8 +1,25 @@
 nav
-	div.normal.flex-container.top
-		div.link
-			a(href='/about') About
-		div.link
-			a(href='/projects') Projects
-		div.link
-			a(href='/contact') Contact
+	if currentUser
+		div.normal.flex-container.partial.top
+			div.link
+				a(href='/about') About
+			div.link
+				a(href='/projects') Projects
+			div.link
+				a(href='/contact') Contact
+			div.link
+				a(href='/logout') Logout
+		div.normal.partial.bot
+			p= "Logged in as " + user.name
+	else
+		div.normal.flex-container.top
+			div.link
+				a(href='/about') About
+			div.link
+				a(href='/projects') Projects
+			div.link
+				a(href='/contact') Contact
+			div.link
+				a(href='/login') Login
+
+				

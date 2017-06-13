@@ -1,4 +1,4 @@
-extends layoutExt
+extends layout
 
 block content
   div.normal.block#login
@@ -21,4 +21,4 @@ block content
           p.err You must enter both an email and a password
         else if logIssue == "passFail"
           p.err Invalid credentials
-      button.btn.btn-primary(type='submit') Submit
+      button(type='submit') Submit

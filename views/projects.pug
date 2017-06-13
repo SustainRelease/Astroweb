@@ -1,8 +1,8 @@
-extends layoutExt
+extends layout
 
 block content
   if isLoggedIn
-    div.normal.block#projects
+    div.normal.block.projects
       if (!priProjects)
         h2 Your Projects
         p You don't have any projects to see here
@@ -16,7 +16,7 @@ block content
             a(href= proj.href)
               img.project(src= "static/images/" + proj.imgPath alt= proj.name)
             p= proj.description
-  div.normal.block#projects
+  div.normal.block.projects
     if isLoggedIn
       h2 Public Projects
     else

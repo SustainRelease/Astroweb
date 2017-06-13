@@ -1,5 +1,11 @@
 @media screen and (min-width: 480px) {
-
+  div.project a {
+    float: left;
+  }
+  div.project p {
+    float: right;
+    width: 55%;
+  }
 }
 
 @media screen and (min-width: 660px) {
