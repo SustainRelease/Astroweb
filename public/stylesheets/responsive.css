@@ -3,5 +3,9 @@
 }
 
 @media screen and (min-width: 660px) {
+  div.bot {
+    width: 400px;
+    padding: 0 50px;
+  }
 
 }

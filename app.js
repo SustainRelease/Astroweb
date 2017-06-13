@@ -36,6 +36,7 @@ module.exports = function () {
   // make user ID available in templates
   app.use(function (req, res, next) {
     res.locals.currentUser = req.session.userId;
+    res.locals.subRoute = subRoute;
     next();
   });
 
@@ -52,8 +53,8 @@ module.exports = function () {
 
   app.use('/static', express.static(__dirname + '/public'));
 
-  app.use('/', main(subRoute));
-  app.use('/', authenticate());
+  app.use(subRoute, main());
+  app.use(subRoute, authenticate());
 
   app.use(function(req, res, next) {
     var err = new Error('Not Found');

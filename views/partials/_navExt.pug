@@ -6,8 +6,12 @@ nav
 			a(href='/projects') Projects
 		div.link
 			a(href='/contact') Contact
-	div.normal.partial.link.bot
+	div.normal.partial.bot
 		if !currentUser
-			a(href = "/login") Login to see your projects
+			div.link
+				a#login(href = "/login") Login
+			p to see your projects
 		if currentUser
-			p hello Robbie
+			p= "Logged in as " + user.name
+			div.link
+				a#logout(href = "/logout") Logout

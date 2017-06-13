@@ -56,6 +56,13 @@ a {
   text-decoration: none;
 }
 
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
+
 /********************************
             NAV
 ********************************/
@@ -81,10 +88,13 @@ div.top {
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   border-bottom-style: none;
+  height: 31px;
 }
 
 div.link a {
-  padding: 5px;
+  height: 20px;
+  padding: 2px;
+  margin: auto 0;
   border-radius: 5px;
 }
 
@@ -110,15 +120,47 @@ div.top .link:nth-child(2) {
   border-right: 1px solid hsl(236, 28%, 80%);
 }
 
-div.bot.link {
+div.bot {
+  display: inline-block;
+  padding: 0 20px;
+  max-width: 460px;
   background-color: hsl(236, 28%, 60%);
   border-top-style: none;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
 }
 
-div.bot.link a:hover {
+div.bot .link {
+  display: inline;
+  margin: auto 5px;
+}
+div.bot p {
+  display: inline;
+}
+
+div.bot a {
+  background-color: hsl(236, 28%, 40%);
+  border: 1px solid black;
+}
+
+div.bot a:hover {
   background-color: hsl(236, 28%, 65%);
+}
+
+a#login {
+  background-color: hsl(100, 70%, 40%);
+}
+
+a#login:hover {
+  background-color: hsl(100, 70%, 60%);
+}
+
+a#logout {
+  background-color: hsl(0, 70%, 40%);
+}
+
+a#logout:hover {
+  background-color: hsl(0, 70%, 60%);
 }
 
 

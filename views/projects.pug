@@ -3,25 +3,27 @@ extends layoutExt
 block content
   if isLoggedIn
     div.normal.block#projects
-      if nProjects == 0
+      if (!priProjects)
         h2 Your Projects
         p You don't have any projects to see here
       else
-        if nProjects == 1
+        if priProjects.length == 1
           h2 Your Project
         else 
           h2 Your Projects
+        each proj in priProjects
+          div.project
+            a(href= proj.href)
+              img.project(src= "static/images/" + proj.imgPath alt= proj.name)
+            p= proj.description
   div.normal.block#projects
     if isLoggedIn
       h2 Public Projects
     else
       h2 Projects
-    div.project
-      a(href = "/revolt")
-        img.project(src="static/images/revolt.png" alt="Revolt")
-      p Revolt is a new company working with Mexican designers to bring ethically-made clothing to France.
-    div.project
-      a(href = "https://www.facebook.com/dylanturney")
-        img.project(src="static/images/dylan.jpg" alt="Dylan")
-      p We are all very concerned about Dylan.
+    each proj in pubProjects
+      div.project
+        a(href= proj.href)
+          img.project(src= "static/images/" + proj.imgPath alt= proj.name)
+        p= proj.description
     

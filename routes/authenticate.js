@@ -1,7 +1,8 @@
 module.exports = function () {
   var express = require('express');
   var router = express.Router();
-  var User = require('../models/user');
+  var User = require('../models/user').User;
+  var Project = require('../models/user').Project;
   var mid = require('../middleware/middle.js');
 
   // GET /profile
@@ -24,7 +25,7 @@ module.exports = function () {
         if(err) {
           return next(err);
         } else {
-          return res.redirect('/');
+          return res.redirect('/projects');
         }
       });
     }

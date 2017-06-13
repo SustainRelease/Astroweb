@@ -1,27 +1,27 @@
-module.exports = function (subRoute) {  //subRoute should be empty
+module.exports = function () {
   var express = require('express');
   var router = express.Router();
-  var getUserInfo = require('../middleware/middle.js').getUserInfo;
+  var mid = require('../middleware/middle.js');
 
   // ROUTES
   //Main page
-  router.get(subRoute + '/', function(req, res, next) {
-    res.render('index', {subR: subRoute});
+  router.get('/', function(req, res, next) {
+    res.render('index');
   });
 
   //About
-  router.get(subRoute + '/about', function(req, res, next) {
-    res.render('about', {subR: subRoute});
+  router.get('/about', function(req, res, next) {
+    res.render('about');
   });
 
   //Projects
-  router.get(subRoute + '/projects', getUserInfo, function(req, res, next) {
-    res.render('projects', {subR: subRoute});
+  router.get('/projects', mid.getUser, mid.getPriProjects, mid.getPubProjects, function(req, res, next) {
+    res.render('projects');
   });
 
   //Contact
-  router.get(subRoute + '/contact', function(req, res, next) {
-    res.render('contact', {subR: subRoute});
+  router.get('/contact', function(req, res, next) {
+    res.render('contact');
   });
 
   return router;
