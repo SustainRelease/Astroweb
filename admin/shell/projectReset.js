@@ -1,7 +1,7 @@
 var adminTools = require("../adminTools");
 
 var db = adminTools.setUpMongo("astroweb", true);
-adminTools.createUser("robbiemuir7@gmail.com", "Robbie", "Ab/Ab351",function () {
+return adminTools.createUser("robbiemuir7@gmail.com", "Robbie", "Ab/Ab351",function () {
   adminTools.createUser("chelsea@gmail.com", "Chelsea", "chelsea", function () {
     adminTools.createProject ("chelsea@gmail.com", "Revolt",
     "Revolt is a new company working with Mexican designers to bring ethically-made clothing to France.",

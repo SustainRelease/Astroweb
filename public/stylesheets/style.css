@@ -1,10 +1,13 @@
 body {
   padding: 2px;
   font: 12px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-image: url("/static/images/pat_Space.png");
+  background-repeat: repeat;
   background-color: black;
   background-position: center;
-  background-size: cover;
+  background-size: auto;
   text-align: center;
+  font-family: 'Sarala', sans-serif;
   font-size: 90%;
 }
 
@@ -18,6 +21,7 @@ div.normal {  /* Visible width = 500 + 2(2+1) = 506 */
   max-width: 500px;
   padding: 0px;
   margin: 10px auto;
+  background-image: url("/static/images/pat_Moon.png");
   background-color: hsl(236, 28%, 70%);
   border: 1px solid black;
   border-radius: 10px;
