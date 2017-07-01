@@ -4,6 +4,7 @@ module.exports = function () {
   var User = require('../models/user').User;
   var Project = require('../models/user').Project;
   var mid = require('../middleware/middle.js');
+  var path = require('path');
 
   // GET /logout
   router.get('/logout', mid.getUser, function(req, res, next) {
@@ -42,6 +43,9 @@ module.exports = function () {
       res.locals.logIssue = "fieldsEmpty";
       return res.render('login');
     }
+  });
+  router.get("/googlebdb8f8f026ae09df.html", function(req,res,next) {
+    res.sendFile(path.join(__dirname + '/googleVerify.html'));
   });
 
   return router;
